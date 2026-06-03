@@ -1,0 +1,177 @@
+/* Design tokens + globals */
+:root{
+  --bg:#0f172a;
+  --panel:#0b1220;
+  --muted:#94a3b8;
+  --text:#f1f5f9;
+  --accent-ron95:#ff6b6b;
+  --accent-e10:#4ecdc4;
+  --accent-e5:#45b7d1;
+  --accent-do005:#ffa07a;
+  --accent-do001:#98d8c8;
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.06);
+  --radius:12px;
+  --shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:linear-gradient(180deg,var(--bg),#071029);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.header{
+  padding:28px 0 12px;
+}
+.hero-title{
+  font-size:40px;font-weight:700;line-height:1;color:var(--text);
+  background:linear-gradient(90deg,var(--text),rgba(255,255,255,0.6));-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 6px 24px rgba(2,6,23,0.6);
+}
+.source-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));border:1px solid var(--glass-border);font-size:12px;color:var(--muted)}
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:12px}
+.fuel-card{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:14px;box-shadow:var(--shadow);backdrop-filter:blur(6px);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.fuel-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 14px 36px rgba(2,6,23,0.75)}
+.fuel-icon{font-size:20px}
+.fuel-name{font-size:12px;color:var(--muted);margin-top:6px}
+.fuel-price{font-size:28px;font-weight:700;margin-top:6px}
+.fuel-unit{font-size:12px;color:var(--muted);margin-top:4px}
+.region-pills{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pill{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);cursor:pointer;transition:all .18s}
+.pill.active{background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));color:var(--text);border-color:rgba(255,255,255,0.06);transform:translateY(-2px)}
+.footer-note{opacity:.6;font-size:12px;text-align:center;margin-top:18px}
+
+/* Custom premium styles */
+.chart-container-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  margin-top: 14px;
+}
+.chart-header {
+  margin-bottom: 20px;
+}
+.chart-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+.chart-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  display: block;
+  margin-top: 4px;
+}
+.chart-empty {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.01);
+  border: 1px dashed rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 14px;
+}
+.chart-tooltip {
+  background: rgba(11,18,32,0.96);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+}
+.tooltip-date {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+.tooltip-price {
+  margin: 4px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+.fuel-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.fuel-pill-btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.fuel-pill-btn:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.1);
+}
+.fuel-pill-btn.active {
+  background: var(--accent);
+  color: #0f172a;
+  font-weight: 600;
+  border-color: transparent;
+  box-shadow: 0 0 14px var(--accent);
+}
+.chart-toast {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
+  background: rgba(15,23,42,0.96);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.4);
+  border-radius: 14px;
+  padding: 14px 18px;
+  max-width: 340px;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  backdrop-filter: blur(10px);
+}
+.toast-close-btn {
+  margin-top: 10px;
+  border: 0;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.toast-close-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width:640px){
+  .hero-title{font-size:28px}
+  .fuel-price{font-size:22px}
+  .fuel-pill-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
