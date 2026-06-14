@@ -16,12 +16,12 @@ interface PriceHeroProps {
   onRegionChange: (r: string) => void;
 }
 
-const fuelOrder: FuelType[] = ['ron95', 'e10ron95', 'e5ron92', 'do005s', 'do001s'];
+const fuelOrder: FuelType[] = ['e10ron95', 'e5ron92', 'do005s', 'do001s'];
 
 export default function PriceHero({ snapshot, history, loading, region, onRegionChange }: PriceHeroProps) {
   const [changes, setChanges] = useState<PriceChange[]>([]);
   const [showToast, setShowToast] = useState(false);
-  const [selectedFuel, setSelectedFuel] = useState<FuelType>('ron95');
+  const [selectedFuel, setSelectedFuel] = useState<FuelType>('e10ron95');
 
   useEffect(() => {
     try {
@@ -113,7 +113,7 @@ export default function PriceHero({ snapshot, history, loading, region, onRegion
           {changes.length > 0 && <span className="source-badge">{changes.length} thay đổi</span>}
         </div>
         <h1 className="hero-title" style={{margin:'14px 0 6px'}}>Giá xăng dầu hiện tại</h1>
-        <p style={{color:'var(--muted)',margin:0}}>Theo dõi 5 mặt hàng xăng dầu chính, cập nhật tự động cho MVP cá nhân.</p>
+        <p style={{color:'var(--muted)',margin:0}}>Theo dõi 4 mặt hàng xăng dầu chính, cập nhật từ Petrolimex chính thức.</p>
       </div>
 
       <div style={{marginTop:10, marginBottom: 20}}>

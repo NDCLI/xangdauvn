@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { crawlPetrolimex, crawlPVOil } from '@/lib/crawlers/petrolimex';
 
+export const runtime = 'nodejs';
+export const maxDuration = 60;
+
 export async function GET(request: NextRequest) {
   const region = request.nextUrl.searchParams.get('region') || 'vung-1';
   const normalizedRegion = region === 'vung-2' ? 'vung-2' : 'vung-1';

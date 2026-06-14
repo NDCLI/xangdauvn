@@ -30,10 +30,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(history);
   } catch (error) {
-    console.error('Failed to fetch history:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch historical data' },
-      { status: 500 }
-    );
+    console.warn('Failed to fetch history, returning empty history:', error);
+    return NextResponse.json([]);
   }
 }
